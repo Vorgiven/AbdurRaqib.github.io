@@ -1,21 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prac13b</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+    </head>
 
-<body >
-    <button id="leftBtn">Left</button>
-    <button id="rightBtn">Right</button>
-    <button id="upBtn">Up</button>
-    <button id="downBtn">Down</button>
-    <button id="resetBtn">Reset</button>
-    <div id="ball">Ball</div>
-</body>
+    <body>
+        <form style="width: 500px; border-radius: 2px; border-color: red;">
+        <label for="userId">User id:</label>
+        <input type="text" minlength="5" maxlength ="12" name="fid" required> 
+        <br>
+        <label>Password:</label>
+        <input type="password" minlength="7" maxlength ="12" name="fpassword"> 
+        <br>
+        <label>Name:</label>
+        <input type="text" name="fname"  pattern="[A-Za-z]{3}" required> 
+        <br>
+        <label>Address:</label>
+        <input type="text"name="fname"required> 
+        <br>
+        <label>Country:</label>
+        <select name="fcountry">
+            <option value="sg">Singapre</option>
+            <option value="my">Malaysia</option>
+            <option value="ph">PH</option>
+            <option value="us">US</option>
+        </select>
+        <br>
 
+        <label>ZIP Code:</label>
+        <input type="text" required="text" name="fzipcode"maxlength="6"  >  
+        <br>
+        <label>Email:</label>
+        <input type="email" required="text" name="femail"> 
+        <br>
+        <label>Sex</label>
+        <input type="radio" required="text" name="fgender"> 
+        <label>Male</label>
+        <input type="radio" required="text" name="fgender"> 
+        <label>Female</label>
+        <br>
+
+        <label>Language:</label>
+        <input type="checkbox"  name="flanguage"> 
+        <label>English</label>
+        <input type="checkbox"  name="flanguage"> 
+        <label>Malay</label>
+        <input type="checkbox" name="flanguage">
+        <label>Mandarin</label>
+        <input type="checkbox"  name="flanguage"> 
+        <label>Tamil</label>
+        <input type="checkbox" required="text" name="flanguage"> 
+        <label>Tagalog</label>
+        <br>
+        <label>About:</label>
+        <textarea style="width: 200px; resize: none;"></textarea>
+        <br>
+        <input type="submit">
+    </form>
+
+    </body>
 </html>
