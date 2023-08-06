@@ -4,19 +4,475 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prac13b</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <link rel="icon" type="image/x-icon" href="/Icons/favicon.ico">
+    <title>Archery</title>
 </head>
 
-<body >
-    <button id="leftBtn">Left</button>
-    <button id="rightBtn">Right</button>
-    <button id="upBtn">Up</button>
-    <button id="downBtn">Down</button>
-    <button id="resetBtn">Reset</button>
-    <div id="ball">Ball</div>
+<body>
+    <!--HEADER-->
+    <header>
+        <div><button id="btnBack"><img src="images/icon_back.png" alt="back"></button></div>
+        <div>ARCHERY</div>
+        <div><button id="btnHamburger"><img src="images/icon_menu.png" alt="menu"></button></div>
+    </header>
+    <!--NAVIGATION (MOBILE) -->
+    <nav id="navbar">
+        <button id="close-menu">
+            CLOSE
+        </button>
+        <ul id="nav-side-menu">
+        </ul>
+    </nav>
+
+    <div id="navMain">
+        <div class="nav-card">
+            <h1>HISTORY</h1>
+            <img src="images/nav_history.jpg" alt="test">
+            <p>All about history of archery and how it became a sport</p>
+            <button class="btnPage"></button>
+        </div>
+        <div class="nav-card">
+            <h1>TYPE OF BOWS</h1>
+            <img src="images/nav_bows.png" alt="test">
+            <p>Throughout the years many variations of bows has been built. </p>
+            <button class="btnPage"></button>
+        </div>
+        <div class="nav-card">
+            <h1>HOW TO PLAY</h1>
+            <img src="images/archery.JPG" alt="test">
+            <p>Guide in how to play archery sport, the rules and your body position</p>
+            <button class="btnPage"></button>
+        </div>
+        <div class="nav-card">
+            <h1>WHERE TO PLAY</h1>
+            <img src="images/nav_where_to_play.jpeg" alt="test">
+            <p>Find it intriguing? click here to find out how to play archery as a sport</p>
+            <button class="btnPage"></button>
+        </div>
+        <div class="nav-card">
+            <h1>COMPETITION</h1>
+            <img src="images/nav_competition.jpg" alt="test">
+            <p>Confident enough already? then you should participate in a competition.</p>
+            <button class="btnPage"></button>
+        </div>
+    </div>
+    <main>
+        <!--Title section-->
+        <div id="section-title">
+            <h1>-</h1>
+        </div>
+        <!--Navigation section-->
+        <div id="nav-section">
+            <nav>
+                <ul id="nav-section-list">
+                </ul>
+            </nav>
+        </div>
+        <!--MAIN CONTENT-->
+        <div class="content" id="content-1">
+            <h1>HISTORY OF ARCHERY</h1>
+
+            <section>
+                <div>
+                    <h2>OLYMPICS</h2>
+                    <p>In 1900, 1904, 1908, and 1920, archery was a part of the Olympic program. After a 52-year break,
+                        it made a comeback in 1972 and has been a part of the show ever since. Recurve bows are used by
+                        competitors in target archery competitions at the Olympics. Based on early results, Hubert van
+                        Innis of Belgium and Kim Soo-Nyung of Korea are the two most successful Olympians in the sport
+                        of archery. The only archer to have won the individual Olympic title twice is Darrell Pace of
+                        the USA. The country with the most Olympic success in archery is Korea.</p>
+                </div>
+                <div>
+                    <img src="images/section_olympic.png" alt="section_olympic">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>PARALYMPICS</h2>
+                    <p>Archery has featured on the programme of the Paralympic Games since its first edition in 1960 and
+                        is rooted in the history of the Paralympic movement, having been used by Dr. Ludwig Gutmann as a
+                        rehabilitation activity at Stoke Mandeville Hospital in England, where early versions of the
+                        event were held. Impaired athletes compete in para archery events with recurve and compound bows
+                        at the Paralympics.</p>
+                </div>
+                <div>
+                    <img src="images/section_paralympics.png" alt="section_paralympics.png">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>WORLD GAMES</h2>
+                    <p>Since 1985, archery has been a part of the World Games schedule. Before the compound bow was
+                        introduced in 1995, field archery competitions were only open to recurve and barebow archers.
+                        The target archery discipline was added to the compound competition in 2013. The compound men's
+                        field archery event was won three times by Morgan Lundin, who is the most successful archer at
+                        the World Games in 1993, 1997, and 2005.</p>
+                </div>
+                <div>
+                    <img src="images/section_world_games.png" alt="section_world_games.png">
+                </div>
+            </section>
+        </div>
+        <div class="content" id="content-2">
+            <h1>TYPE OF BOWS</h1>
+            <p>A bow consists of a semi-rigid but elastic arc with a high-tensile bowstring joining the ends of the two
+                limbs of the bow. An arrow is a projectile with a projected tip and a long shaft with fins (fletching)
+                towards the back, with a narrow notch (nock) at the very end to contact the bowstring.</p>
+            <section>
+                <div>
+                    <h2>Recurve or Classical bow</h2>
+                    <p>The curved branches and more massive handle of the recurve bow make it easy to identify. It can
+                        be used instinctively without a sighting device, but attachments like a stabilizer, a sight, and
+                        vibration dampers can be enhanced. It comes in a variety of shapes and weights, up to 40 pounds
+                        for adult recreational shooting.</p>
+                </div>
+                <div>
+                    <img src="images/section_recurve.png" alt="section_recurve">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Straight or Longbow</h2>
+                    <p>Another common traditional bow is the longbow, which is big (2 meters), straight, and D-shaped.
+                        Depending on your morphology, straight bows can now be found in a variety of sizes. It is
+                        constructed from a single block of yew, boxwood, or glued wood laminate. It is a medieval
+                        English bow with instinctive shooting that is only used by experienced archers who practice
+                        natural shooting.
+                        The longbow has a weight range of 25 to 60 pounds. For the competition, wood must be used to
+                        make the arrows.</p>
+                </div>
+                <div>
+                    <img src="images/section_long_bow.png" alt="section_long_bow">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Compound bow</h2>
+                    <p>The Compound is a bow that has a system of hoists that increases the power and speeds up the
+                        propulsion of the arrows. Size, length, and power are only a few of the many selection factors.
+                        The power of leisure bows can be as little as 12 lbs (for kids) or as high as 75 lbs (for
+                        hunting bows). The use of higher powers will be limited to hunting.
+                        On American design, it is mostly utilized for target shooting, hunting, and outdoor activities.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/section_compound_bow.jpg" alt="">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Barebow</h2>
+                    <p>The barebow is a classic recurve or longbow that may be shot without the use of accessories such
+                        a sight, stabilizer, range indicator, or aiming mark. It is used in some field shooting
+                        contests. All of the bow's decorations have been removed, perhaps with the exception of the
+                        button-berger.</p>
+                </div>
+                <div>
+                    <img src="images/section_bare_bow.png" alt="section_bare_bow">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Survival bow</h2>
+                    <p>Small, foldable longbows are essentially what survival bows are. This implies that they have far
+                        less power than a takedown recurve bow. However, the majority of survival bows can fire
+                        precisely up to 30 yards, which is more than sufficient for deer hunting, particularly in a
+                        survival situation.</p>
+                </div>
+                <div>
+                    <img src="images/section_survival_bow.jpg" alt="section_survival_bow">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>The Japanese bow or Yumi</h2>
+                    <p>The Kuydo martial art, which is a legacy of the Samurai, is practiced with a traditional Japanese
+                        bow called the Yumi. Fiber or carbon, which were originally made of bamboo, are acceptable. The
+                        bow's asymmetrical handle is in the lower third and is only held with the left hand. The
+                        extremely long bow, which is over two meters long, is unequipped. The Ya is the name of the
+                        Japanese arrow. It can be made of carbon fiber, bamboo, or aluminum.</p>
+                </div>
+                <div>
+                    <img src="images/section_japanese_bow.jpg" alt="section_japanese_bow">
+                </div>
+            </section>
+        </div>
+        <div class="content" id="content-3">
+            <h1>HOW TO PLAY</h1>
+            <section>
+                <div>
+                    <h2>Archery Rules</h2>
+                    <p>• Two whistle blows: The archer moves to the shooting line.<br>
+                        • One whistle blow: The archer shoots.<br>
+                        • Three whistle blows: The archer retrieves their arrows.<br>
+                        • Each archer has two minutes to shoot three arrows.<br>
+                        • There are no re-shot’s allowed.<br>
+                        • Athletes can be penalized, disqualified, or even banned for breaching rules.<br>
+                        • Archer’s must wait until the signal to start is given before raising the bow arm.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/section_rules.jpeg" alt="section_rules">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Archery Skills and Techniques</h2>
+                    <p>There are common guidelines that archers adhere to, even though some techniques may vary, to help
+                        assure accuracy when shooting. These guidelines obviously do not apply to all forms of archery,
+                        but they will give you a general sense of how it works. Ready? Here we go, then!
+                    </p>
+                </div>
+                <div>
+                    <img src="images/section_skills.png" alt="section_skills">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Proper stance</h2>
+                    <p>Line up, so your feet are in a line towards the middle of the target. Your feet should be
+                        shoulder width apart, and your toes should be pointing at a 90-degree angle from the target. In
+                        other words, if you drew an imaginary line from the center of the target, it would hit the side
+                        of your foot.</p>
+                </div>
+                <div>
+                    <img src="images/section_proper_stance.png" alt="section_proper_stance">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Put the arrow in the bow</h2>
+                    <p>Put the arrow on the arrow rest, which is part of the bow. Place the bowstring into the nock,
+                        which is the slotted portion on the back of an arrow. Usually, the fletching, or the feather or
+                        plastic stabilizing portion of the bow, will have one that is odd colored, as you can see in the
+                        image below. Point the odd-colored fletch outward.</p>
+                </div>
+                <div>
+                    <img src="images/section_arrow.jpg" alt="section_arrow">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Grip the string</h2>
+                    <p>Typically, three fingers are used to hold the string. The pointer finger is held above the arrow,
+                        and the middle and ring finger are below the arrow. The grip should be loose.</p>
+                </div>
+                <div>
+                    <img src="images/section_string.jpg" alt="section_string">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Draw the bow & Aim</h2>
+                    <p>Raise the bow and draw, or pull the string back. Your bow arm, or the arm that is not drawing the
+                        string, should be pointed toward the target. Next, draw the string toward an anchor point. This
+                        varies depending on whether or not you're using a sight. Anchor points are typically the chin,
+                        corner of the mouth, or ear. <br> Some people aim with a sight, others do not.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/section_aim.jpg" alt="section_aim">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Release</h2>
+                    <p>Let go of the string by relaxing your fingers. Don't jerk or move the bow after you have released
+                        the arrow. Stay in the stance until the arrow hits the target as to not move while the arrow is
+                        being released.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/section_release.png" alt="section_release">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Scoring</h2>
+                    <p>Add up the number of points based on where the arrow hits the target. The lowest score you can
+                        receive for shooting one arrow is one point (hitting the outer white ring) while the highest
+                        score possible is ten points (hitting the inner gold ring).</p>
+                </div>
+                <div>
+                    <img src="images/section_scoring.jpg" alt="section_scoring">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Winning the Game</h2>
+                    <p>This will depend on the tournament style. During a competition, the winner is either the person
+                        who has the highest cumulative score after all the arrows have been shot, or the archer has
+                        outdueled his opponents in a “knockout” style game.</p>
+                </div>
+                <div>
+                    <img src="images/section_scoring.jpg" alt="section_scoring">
+                </div>
+            </section>
+        </div>
+        <div class="content" id="content-4">
+            <h1>WHERE TO PLAY</h1>
+            <section>
+                <div>
+                    <h2>Ace Archery</h2>
+                    <p>Ace Archery offers classes for all skill levels and is run by skilled coaches and trainers.
+                        Additionally, it plans events, projects, and activities relating to archery. Over 100
+                        institutions, community centers, and schools have taken its courses so far.</p>
+                </div>
+                <div>
+                    <img src="images/section_ace.jpg" alt="section_ace">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Telok Blangah Archery Club</h2>
+                    <p>The Telok Blangah Archery Club is ideal for people who are always on the go and only have time to
+                        relax on the weekends. It is accessible to people of all skill levels on Sundays, and anyone can
+                        sign up for an archery session. It also hosts parent-child workshops, which are a wonderful
+                        chance to connect.</p>
+                </div>
+                <div>
+                    <img src="images/section_telok.jpg" alt="section_telok">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Pasir Ris Elias Archery Club</h2>
+                    <p>If you live in the east and are interested in learning archery, the Pasir Ris Elias Archery Club
+                        is a laid-back group that offers enjoyable shooting sessions and archery lessons at the outdoor
+                        range. On some weekday evenings (ideal for the after-work crowd), these people hold regular
+                        shooting sessions, and they get going early on the weekends.</p>
+                </div>
+                <div>
+                    <img src="images/section_pasir_ris.jpg" alt="section_pasir_ris">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Flaming Arrows Archery Club</h2>
+                    <p>The Flaming Arrows Club, which was founded in 2005, specializes in beginner-level introductory
+                        classes. In Marsiling, there is a separate archery range. In addition to courses, you may
+                        schedule private sessions for families, businesses, or more in-depth classes on perfecting your
+                        form and execution (accessible to members only).</p>
+                </div>
+                <div>
+                    <img src="images/section_flaming.png" alt="section_flaming">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Salt & Light Archery</h2>
+                    <p>This location provides a pleasant family activity with courses ideal for all age groups, from
+                        four-year-olds to senior citizens. Beginner courses are available for those who wish to learn
+                        more about the sport, its fundamental regulations, and how to assemble a recurve bow.</p>
+                </div>
+                <div>
+                    <img src="images/section_sla.jpg" alt="section_sla">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>The Archery Academy</h2>
+                    <p>The Archery Academy offers classes for all ability levels, complete with all the necessary
+                        equipment, whether you are an expert archer looking to improve your techniques or you are simply
+                        curious to give the sport a try. The 70-meter archery range offers a well-paved shooting line,
+                        cover from the sun and rain, and shade so you can shoot your bows there.</p>
+                </div>
+                <div>
+                    <img src="images/section_academy.png" alt="section_academy">
+                </div>
+            </section>
+        </div>
+        <div class="content" id="content-5">
+            <h1>COMPETITIONS</h1>
+            <section>
+                <div>
+                    <h2>Archery World Cup</h2>
+                    <p>Since the first edition of the Paralympic Games in 1960, archery has been a part of the
+                        Paralympic movement's history and has been on the schedule of every competition.
+                        Para-archery, which includes standing and wheelchair events, is available to competitors with
+                        physical disabilities in the Paralympic Games. Ten scoring zones are indicated on the target,
+                        and athletes shoot at it from a distance.
+                        Every two years, World Archery hosts the World Archery Para Championships, an international
+                        competition for para archers.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/section_world_cup.png" alt="section_world_cup">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>Olympic Archery</h2>
+                    <p>Target archery is practiced using recurve bows prior to the Olympics. Athletes engage in
+                        head-to-head competition to score set points—2 points for winning a set and 1 point for tying a
+                        set—firing at targets 70 meters away. The first player to score 6 set points wins the match.
+                        Olympic archery competitions are held in the form of the World Archery Field Championships and
+                        are held every two years. It was first hosted in 1969.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/section_olympic_archer.jpg" alt="section_olympic_archer">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>World Archery Championships</h2>
+                    <p>Every two years, World Archery hosts the World Archery Championships, an international
+                        competition for outdoor target archery. Each winner is referred to as the World Archery
+                        Champion, and it is regarded as the sport's pinnacle competition. In 1931, the event was first
+                        held.</p>
+                </div>
+                <div>
+                    <img src="images/section_world_championship.png" alt="section_world_championship">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>World Archery 3D Championships</h2>
+                    <p>Shooting at fixed foam targets shaped like various animals that are placed around a course at
+                        various distances, heights, and angles is known as 3D archery. Every two years, World Archery
+                        hosts the World Archery 3D Championships, an international competition for 3D archers. The first
+                        one was held in 2003.</p>
+                </div>
+                <div>
+                    <img src="images/section_3d.png" alt="section_3d">
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h2>World Youth Championships (Outdoor Target)</h2>
+                    <p>Since 1991, a separate host city has hosted the World Youth Archery Championships, an annual
+                        international championship in archery. Recurve and compound bow competitions are held in the
+                        cadet and junior divisions.</p>
+                </div>
+                <div>
+                    <img src="images/section_youth_competition.png" alt="section_youth_competition">
+                </div>
+            </section>
+        </div>
+
+
+    </main>
+    <!--GAME-->
+    <div id="game-panel">
+        <div>
+            <P>TEST YOUR SHOT!</P>
+        </div>
+        <div id="game">
+            <button id="btn-game-start">PLAY</button>
+            <div id="gameobjects"></div>
+            <div id="game-timer"></div>
+            <div id="game-score"></div>
+            <button id="btn-fullscreen">[]</button>
+
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+        foot
+    </footer>
 </body>
 
 </html>
