@@ -16,8 +16,67 @@ const h1AllSectionTitle = document.querySelectorAll("main .content h1"); // sect
 const sections = document.querySelectorAll("main .content section"); // list sections
 const sectionsEven = document.querySelectorAll("main>.content > :nth-child(even)"); // list sections even
 const sectionsOdd = document.querySelectorAll("main>.content > :nth-child(odd)"); // list sections odd
+const headerSticky = document.querySelector("#header-group"); // header sticky
 
-console.log();
+//console.log(mainContents[0].querySelectorAll("section")[0].querySelectorAll(".section-pages")[0].innerHTML);
+// content 1, section 1, 
+// Get the list of p innerhtml,
+// Check if length more than 1;
+// if more than 1,
+// disable all p ages except page 1
+// create x element in section-page-btns
+// add listener where it will disable all page and enable the current
+
+
+// Create all section pages buttons
+function CreatePageButtons() {
+
+// Loop through all the contents in the website
+    for (let i = 0; i < mainContents.length; i++) {
+    // Loop through all the sections in the each content
+        for (let j = 0; j < mainContents[i].querySelectorAll("section").length; j++) {
+        // Loop through all the pages in the each sections
+            for (let k = 0; k < mainContents[i].querySelectorAll("section")[j].querySelectorAll(".section-pages").length; k++) {
+                const page = mainContents[i].querySelectorAll("section")[j].querySelector(".section-pages").querySelectorAll("p");
+                const pageBtns = mainContents[i].querySelectorAll("section")[j].querySelector(".section-pages-btns");
+
+                // disable all pages first
+                for (let l = 0; l < page.length; l++) {
+
+                    if (page.length > 1) {
+                        // Create button element
+                        const bu = document.createElement("button");
+                        bu.innerHTML = l+1;
+                        // append to button group dive
+                        pageBtns.appendChild(bu);
+                        // Add button listener to change page section
+                        bu.addEventListener("click",
+                            () => {
+                                ChangeSectionPage(i+1,j+1,l+1);
+                            });
+                            // Disable all pages but the first
+                        if (l != 0) {
+                            page[l].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// Change page of each section
+function ChangeSectionPage(contentPage, section, sectionPage) {
+    const sectionPages = mainContents[contentPage - 1].querySelectorAll("section")[section - 1].querySelector(".section-pages").querySelectorAll("p");
+    const pageFocus = sectionPages[sectionPage - 1];
+    // Disable all pages first
+    sectionPages.forEach(pages => {
+        pages.style.display = "none";
+    });
+    // display the current page
+    pageFocus.style.display = "block";
+}
+
+
 // page variables
 var isMobile = IsMobileSize();
 var currentPage = 0;
@@ -32,6 +91,7 @@ function Start() {
     SetupSectionID();
     RemoveNavSection();
     ResizeGamePanel();
+    CreatePageButtons();
 }
 
 // Check if on mobile
@@ -43,7 +103,7 @@ function IsMobileSize() {
     return false;
 }
 
-// Slide in effect
+// Slide in effect when view in section
 function slideInOnScroll() {
     for (let i = 0; i < sections.length; i++) {
         const sectionTop = sections[i].offsetTop;
@@ -69,6 +129,7 @@ function SetupSectionID() {
         }
     }
 }
+
 // Get the list of title of content
 function GetListOfSectionTitle(pageNumber) {
     var listSectionTitle = mainContents[pageNumber - 1].querySelectorAll("section h2");
@@ -85,6 +146,7 @@ function RemoveNavSection() {
 function CreateNavElement(listNames) {
     RemoveNavSection();
     let i = 0;
+    // Add the element
     listNames.forEach(name => {
         i++;
         const id = "#content-" + currentPage + "-section-" + i; // get the id of each section
@@ -125,6 +187,9 @@ btnBack.addEventListener("click", () => {
     btnHamburger.style.display = "none";
     HideAllPages();
     athome = true;
+    navCard.forEach(card => {
+        card.querySelector("button").style.display = "block";
+    });
 });
 
 // Hamburger menu *FOR MOVILE USE*
@@ -255,7 +320,6 @@ function ToggleFullScreen(toggle) {
     else {
         // Back to normal size
         gameArea.style.position = "relative";
-
         gameArea.style.width = gameWidth;
         gameArea.style.height = gameHeight;
         gameArea.style.top = gameTop;
@@ -344,7 +408,7 @@ window.addEventListener("resize", () => {
 function FormatPage() {
     isMobile = IsMobileSize();
     if (isMobile) {
-        navSection.style.display = "none";
+        headerSticky.style.position ="sticky";
         // disable / enable back and hamburmenu
         if (athome) {
             btnBack.style.display = "none";
@@ -363,6 +427,8 @@ function FormatPage() {
     else {
         navSection.style.display = "flex";
         navMain.style.display = "flex"; // set the main nav display to flex
+        btnBack.style.display = "none";
+        btnHamburger.style.display = "none";
         ToggleSideNavMenu(false);
     }
     if (!athome)
