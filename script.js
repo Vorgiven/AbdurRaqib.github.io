@@ -1,4 +1,6 @@
 // script.js
+
+// Store all selectors,ids and classes
 const btnBack = document.querySelector("#btnBack");
 const btnHamburger = document.querySelector("#btnHamburger");
 const navSub = document.querySelector("#navbar"); // the navigation in menubar
@@ -11,19 +13,22 @@ const btnCloseMenu = document.getElementById("close-menu"); // close menu
 const h1SectionTitle = document.querySelector("#section-title h1"); // section title
 const h1AllSectionTitle = document.querySelectorAll("main .content h1"); // close menu
 
+// page variables
 var isMobile = IsMobileSize();
 var currentPage = 0;
 var athome = true;
+
 // Start functions
 function Start() {
     // Check if on mobile
     btnBack.style.display = "none";
     btnHamburger.style.display = "none";
-    HideAllPages();
+    HideAllPages(); // hide all page
     SetupSectionID();
     RemoveNavSection();
     ResizeGamePanel();
 }
+
 // Check if on mobile
 function IsMobileSize() {
     let mobileWidth = 800;
@@ -242,7 +247,7 @@ function GameEnd() {
     clearInterval(timerID);
     clearInterval(spawnID);
     btnGameStart.style.display = "block";
-    gameAreaObjects.innerHTML = "";
+    gameArea.innerHTML = "";
 }
 
 // Game loop every 0.1 seconds
@@ -279,7 +284,7 @@ function SpawnTarget() {
         gameScore.innerHTML = score;
     });
     newLi.ondragstart = () => { return false; }; // disable drag
-    gameAreaObjects.appendChild(newLi);
+    gameArea.appendChild(newLi);
 }
 // When resize into mobile / desktop view, will set the layout for its respective
 window.addEventListener("resize", () => {

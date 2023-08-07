@@ -105,7 +105,10 @@ header>* {
 
 header> :not(:nth-child(2))>button {
     background-color: #1B120F;
+    color: #F89D13;
+    font-size: 40px;
 }
+
 
 /*Navigation bar on sub topics *FOR MOBILE**/
 #navbar {
