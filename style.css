@@ -187,6 +187,8 @@ main {
     border: 6px solid #1B120F;
     position: relative;
     width: 100%;
+    height: 400px;
+    transition: background-color 0.2s ease-in;
 }
 
 /* Main Navigation - item card header*/
@@ -216,6 +218,8 @@ main {
     text-align: center;
     flex: 8;
     height: 5%;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 /* button of navigation item*/
@@ -229,6 +233,15 @@ main {
     background-color: #8F1D14;
     font-size: 16px;
     cursor: pointer;
+    transition: 0.05s ease-in;
+}
+.nav-card>button:hover{
+    width: 110px;
+    height: 110px;
+}
+.nav-card>button:focus{
+    width: 70px;
+    height: 70px;
 }
 
 /*MAIN CONTENT OF THE PAGE -----------------------------------------------------------*/
@@ -281,20 +294,32 @@ main>.content>:last-child {
     margin-bottom: 0%;
 }
 
+main>.content > :nth-child(even){
+    margin-left: -100%;
+}
+main>.content > :nth-child(odd){
+    margin-left: 100%;
+}
+
 /* Section of content */
 section {
     padding: 20px;
     background-color: #8F1D14;
     border: 7px solid #1B120F;
     justify-content: center;
-    margin-bottom: 5%;
-    margin-left: 10%;
+    margin-bottom: 10%;
     margin-right: 10%;
     height: 30%;
+    width: 80%;
     margin-top:8%;
     display: flex;
     border-radius: 20px;
+    position: relative;
+    transition: margin-left 0.5s ease-in;
 }
+
+
+
 
 /*First child of section - Description content */
 section> :first-child {
@@ -306,6 +331,7 @@ section> :first-child {
     background-color: #F89D13;
     border: 6px solid #1B120F;
     margin: 1%;
+    left: -50%;
 }
 
 /* section - all contents in section  */
@@ -342,17 +368,20 @@ section> :first-child> :nth-child(2) {
 section> :last-child {
     flex: 1;
     background-color: #E6DEDD;
-    border: 10px solid #1B120F;
+    border: 8px solid #1B120F;
     position: relative;
     display: flex;
     flex-direction: column;
+    transition: border 0.2s ease-in;
 }
 
 section> :last-child>img {
     width: 100%;
     object-fit: contain;
 }
-
+section> :last-child:hover{
+    border: 10px solid #8F1D14;
+}
 
 
 /* bottom navigation to navigate around the sub topics sections*/
@@ -405,6 +434,7 @@ section> :last-child>img {
 /* GAME */
 #game-panel{
     border-top: 8px solid #8F1D14;
+    z-index: 50;
 }
 #game-panel > :first-child{
     display: flex;
@@ -437,6 +467,7 @@ section> :last-child>img {
     width: 10%;
     height: 10%;
     border-radius: 5px;
+    position: absolute;
 }
 #game>button :hover{
     background-color: #F89D13;
@@ -446,11 +477,17 @@ section> :last-child>img {
 }
 #game > #gameobjects{
     position:relative;
+    width: 100%;
+    height: 100%;
 }
 #game-timer {
     position:absolute;
     top: 0;
     font-size: 300%;
+    pointer-events:none;
+}
+#game-score{
+    pointer-events:none;
 }
 #game-score{
     position:absolute;

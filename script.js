@@ -6,13 +6,18 @@ const btnHamburger = document.querySelector("#btnHamburger");
 const navSub = document.querySelector("#navbar"); // the navigation in menubar
 const navMain = document.querySelector("#navMain"); // the main nav of page
 const navMainBtn = document.querySelectorAll("#navMain .nav-card button"); // list of buttons in nav main
+const navCard = document.querySelectorAll("#navMain .nav-card"); // list of nav cards in nav main
 const mainContents = document.querySelectorAll("main .content"); // list of content page
 const navSideMenu = document.getElementById("nav-side-menu"); // nav side menu
 const navSection = document.getElementById("nav-section-list"); // nav bottom
 const btnCloseMenu = document.getElementById("close-menu"); // close menu
 const h1SectionTitle = document.querySelector("#section-title h1"); // section title
-const h1AllSectionTitle = document.querySelectorAll("main .content h1"); // close menu
+const h1AllSectionTitle = document.querySelectorAll("main .content h1"); // section title all
+const sections = document.querySelectorAll("main .content section"); // list sections
+const sectionsEven = document.querySelectorAll("main>.content > :nth-child(even)"); // list sections even
+const sectionsOdd = document.querySelectorAll("main>.content > :nth-child(odd)"); // list sections odd
 
+console.log();
 // page variables
 var isMobile = IsMobileSize();
 var currentPage = 0;
@@ -37,6 +42,20 @@ function IsMobileSize() {
         return true;
     return false;
 }
+
+// Slide in effect
+function slideInOnScroll() {
+    for (let i = 0; i < sections.length; i++) {
+        const sectionTop = sections[i].offsetTop;
+        const sectionBottom = sectionTop + sections[i].clientHeight;
+        const isSectionVisible = window.scrollY >= sectionTop && window.scrollY <= sectionBottom;
+        if (isSectionVisible) {
+            sections[i].style.marginLeft = '10%';
+        }
+    }
+}
+
+window.addEventListener('scroll', slideInOnScroll);
 
 // Set up id for sections - use for link jump to section
 function SetupSectionID() {
@@ -120,11 +139,11 @@ btnCloseMenu.addEventListener("click", () => {
 
 
 // When click button go to next page
-navMainBtn[0].addEventListener("click",()=>{ChangePage(1);});
-navMainBtn[1].addEventListener("click",()=>{ChangePage(2);});
-navMainBtn[2].addEventListener("click",()=>{ChangePage(3);});
-navMainBtn[3].addEventListener("click",()=>{ChangePage(4);});
-navMainBtn[4].addEventListener("click",()=>{ChangePage(5);});
+navMainBtn[0].addEventListener("click", () => { ChangePage(1); });
+navMainBtn[1].addEventListener("click", () => { ChangePage(2); });
+navMainBtn[2].addEventListener("click", () => { ChangePage(3); });
+navMainBtn[3].addEventListener("click", () => { ChangePage(4); });
+navMainBtn[4].addEventListener("click", () => { ChangePage(5); });
 
 // function to go to page
 function ChangePage(pageNumber) {
@@ -134,6 +153,19 @@ function ChangePage(pageNumber) {
     h1SectionTitle.innerHTML = h1AllSectionTitle[pageNumber - 1].innerHTML;
     // show selected content
     mainContents[pageNumber - 1].style.display = "block";
+
+
+    navCard.forEach(card => {
+        card.querySelector("button").style.display = "block";
+    });
+
+
+    navCard[pageNumber - 1].style.backgroundColor = "#F89D13";
+    navCard[pageNumber - 1].querySelector("button").style.backgroundColor = "#F89D13";
+    navCard[pageNumber - 1].querySelector("button").style.display = "none";
+    navCard[pageNumber - 1].querySelector("p").style.color = "#1B120F";
+    navCard[pageNumber - 1].querySelector("p").style.fontWeight = "bold";
+    navCard[pageNumber - 1].querySelector("h1").style.color = "#1B120F";
     // disable navmain if on mobile
     if (isMobile) {
         navMain.style.display = "none"; // disable main navigation
@@ -158,10 +190,26 @@ function HideAllPages() {
     mainContents.forEach(page => {
         page.style.display = "none";
     });
+    navCard.forEach(card => {
+        card.style.backgroundColor = "#8F1D14";
+        card.querySelector("button").style.backgroundColor = "#8F1D14";
+        card.querySelector("p").style.color = "#E6DEDD";
+        card.querySelector("p").style.fontWeight = "none";
+        card.querySelector("h1").style.color = "#F89D13";
+    });
+
+    // Reset slide in
+
+    // Sections odd
+    for (let i = 0; i < sectionsOdd.length; i++) {
+        sectionsOdd[i].style.marginLeft = "100%";
+    }
+    // Sections even
+    for (let i = 0; i < sectionsEven.length; i++) {
+        sectionsEven[i].style.marginLeft = "-100%";
+    }
+
 }
-
-
-
 
 // GAME AREA
 
@@ -193,7 +241,6 @@ btnFullscreen.addEventListener("click", () => {
 
 // Toggling full screen
 function ToggleFullScreen(toggle) {
-    navSection.style.display = "none";
 
     fullscreen = toggle;
     if (toggle) {
@@ -247,7 +294,7 @@ function GameEnd() {
     clearInterval(timerID);
     clearInterval(spawnID);
     btnGameStart.style.display = "block";
-    gameArea.innerHTML = "";
+    gameAreaObjects.innerHTML = "";
 }
 
 // Game loop every 0.1 seconds
@@ -277,14 +324,14 @@ function SpawnTarget() {
     newLi.style.width = "10%";
     newLi.style.top = Math.floor(Math.random() * (80 + 1)) + "%";
     newLi.style.left = Math.floor(Math.random() * (80 + 1)) + "%";
-
+    newLi.style.zIndex = 49;
     newLi.addEventListener("click", () => {
         newLi.remove();
         score++;
         gameScore.innerHTML = score;
     });
     newLi.ondragstart = () => { return false; }; // disable drag
-    gameArea.appendChild(newLi);
+    gameAreaObjects.appendChild(newLi);
 }
 // When resize into mobile / desktop view, will set the layout for its respective
 window.addEventListener("resize", () => {
@@ -315,7 +362,6 @@ function FormatPage() {
     }
     else {
         navSection.style.display = "flex";
-
         navMain.style.display = "flex"; // set the main nav display to flex
         ToggleSideNavMenu(false);
     }
@@ -337,6 +383,5 @@ function ResizeGamePanel() {
     gameMargin = window.getComputedStyle(gameArea).margin;
 }
 
-console.log(window.getComputedStyle(gameArea).height);
-
+// start all starting code
 Start();
