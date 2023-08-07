@@ -162,8 +162,9 @@ function HideAllPages() {
 
 // Get all the tags to display scores and timer
 const gameArea = document.querySelector("#game"); // game panel
-const gameTimer = gameArea.querySelector("#game #game-timer"); // game timer text
-const gameScore = gameArea.querySelector("#game #game-score"); // game score text
+const gameAreaObjects = gameArea.querySelector("#gameobjects"); // game panel
+const gameTimer = gameArea.querySelector("#game-timer"); // game timer text
+const gameScore = gameArea.querySelector("#game-score"); // game score text
 const btnGameStart = gameArea.querySelector("#btn-game-start"); // game start button
 const btnFullscreen = gameArea.querySelector("#btn-fullscreen"); // toggle fullscreen button
 // store game area width height info
@@ -241,6 +242,7 @@ function GameEnd() {
     clearInterval(timerID);
     clearInterval(spawnID);
     btnGameStart.style.display = "block";
+    gameAreaObjects.innerHTML = "";
 }
 
 // Game loop every 0.1 seconds
@@ -250,6 +252,8 @@ function GameLoop() {
         GameEnd();
     }
 }
+
+// Countdown timer
 function Countdown() {
     gameTimer.innerHTML = timer;
     timer -= 1;
@@ -275,7 +279,7 @@ function SpawnTarget() {
         gameScore.innerHTML = score;
     });
     newLi.ondragstart = () => { return false; }; // disable drag
-    gameArea.appendChild(newLi);
+    gameAreaObjects.appendChild(newLi);
 }
 // When resize into mobile / desktop view, will set the layout for its respective
 window.addEventListener("resize", () => {
@@ -314,7 +318,9 @@ function FormatPage() {
         CreateNavElement(GetListOfSectionTitle(currentPage));
 }
 
+// resize game panel so all contents inside is resize as well
 function ResizeGamePanel() {
+    // get the total width of game panel
     let totalWidth = window.innerWidth - parseFloat(window.getComputedStyle(gameArea).marginLeft) - parseFloat(window.getComputedStyle(gameArea).marginRight);
     gameArea.style.width = totalWidth + "px";
     gameArea.style.height = totalWidth * (8 / 16) + "px";
