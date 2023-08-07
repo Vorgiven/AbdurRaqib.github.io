@@ -105,9 +105,6 @@ header>* {
 
 header> :not(:nth-child(2))>button {
     background-color: #1B120F;
-    height: 80px;
-    /* Make the image height same as parent height */
-    width: 80px;
 }
 
 /*Navigation bar on sub topics *FOR MOBILE**/
@@ -122,17 +119,19 @@ header> :not(:nth-child(2))>button {
     transition: 0.3s ease-out;
 }
 
+/*side menu list *FOR MOBILE**/
 #nav-side-menu li {
     padding-top: 2%;
     padding-bottom: 2%;
 }
 
+/*side menu links *FOR MOBILE**/
 #nav-side-menu a {
     font-size: 1em;
     width: 100%;
     height: 100%;
 }
-
+/*side menu links hover *FOR MOBILE**/
 #nav-side-menu>li>a:hover {
     text-decoration: underline;
 
@@ -155,7 +154,7 @@ header> :not(:nth-child(2))>button {
 }
 
 /* side navigation - the close text */
-#navbar> :first-child>p {
+#navbar> :first-child {
     color: #8F1D14;
     font-size: 1.5em;
 }

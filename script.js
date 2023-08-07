@@ -82,6 +82,7 @@ function CreateNavElement(listNames) {
     });
 }
 
+// Toggle side menu
 function ToggleSideNavMenu(toggle) {
     if (toggle == true)
         navSub.style.right = 0 + "%";
@@ -114,11 +115,11 @@ btnCloseMenu.addEventListener("click", () => {
 
 
 // When click button go to next page
-for (let i = 0; i < navMainBtn.length; i++) {
-    navMainBtn[i].addEventListener("click", () => {
-        ChangePage(i+1);
-    });
-}
+navMainBtn[0].addEventListener("click",()=>{ChangePage(1);});
+navMainBtn[1].addEventListener("click",()=>{ChangePage(2);});
+navMainBtn[2].addEventListener("click",()=>{ChangePage(3);});
+navMainBtn[3].addEventListener("click",()=>{ChangePage(4);});
+navMainBtn[4].addEventListener("click",()=>{ChangePage(5);});
 
 // function to go to page
 function ChangePage(pageNumber) {
